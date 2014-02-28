@@ -21,3 +21,4 @@ Game manager API for the Istim Gaming Platform.
 ## Dependencies
 ### User API
   - Authentication
+  ssh test
