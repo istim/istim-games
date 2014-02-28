@@ -1,5 +1,5 @@
-+istim-games
- ============
+istim-games
+============
   
 Game manager API for the Istim Gaming Platform.
  

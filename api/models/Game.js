@@ -10,10 +10,10 @@ module.exports = {
 
   attributes: {
   	
-  	/* e.g.
-  	nickname: 'string'
-  	*/
-    
+  	name: 'string',
+  	releaseDate: 'date',
+  	description: 'string'
+  	
   }
 
 };
