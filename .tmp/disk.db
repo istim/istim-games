@@ -13,10 +13,50 @@
         "updatedAt": "2014-03-06T19:32:27.396Z",
         "id": 4
       }
+    ],
+    "achievment": [
+      {
+        "name": "Coding Hard",
+        "description": "Code as Hard as you Can",
+        "game": 1,
+        "icon": "/desktop/icon.jpg",
+        "createdAt": "2014-03-06T20:48:51.474Z",
+        "updatedAt": "2014-03-06T20:48:51.474Z",
+        "id": 2
+      }
     ]
   },
   "schema": {
     "game": {
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "defaultsTo": "AUTO_INCREMENT",
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime",
+        "default": "NOW"
+      },
+      "updatedAt": {
+        "type": "datetime",
+        "default": "NOW"
+      }
+    },
+    "achievment": {
+      "title": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "game": {
+        "type": "integer"
+      },
+      "icon": {
+        "type": "string"
+      },
       "id": {
         "type": "integer",
         "autoIncrement": true,
@@ -37,6 +77,9 @@
   "counters": {
     "game": {
       "id": 4
+    },
+    "achievment": {
+      "id": 2
     }
   }
 }

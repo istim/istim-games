@@ -15,8 +15,8 @@ module.exports = {
   	*/
     title: 'string',
     description: 'string',
-    game: 'integer',
     icon: 'string',
+    game: 'integer'
   }
 
 };
