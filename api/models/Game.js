@@ -12,7 +12,10 @@ module.exports = {
   	
   	name: 'string',
   	releaseDate: 'date',
-  	description: 'string'
+  	description: 'text',
+  	publisher: 'integer',
+  	likes: 'integer',
+  	systemRequirements: 'text'
   	
   }
 

@@ -31,6 +31,15 @@ module.exports = {
   },
 
 
+  like: function (req, res){
+    Game.findOne(req.param('id')).done(function(err, game){
+      game.likes++;
+      game.save(function(err){
+        res.json(game);
+      });
+    });
+  },
+
   /**
    * Action blueprints:
    *    `/game/releaseDate`

@@ -1,6 +1,19 @@
 {
   "data": {
-    "game": []
+    "game": [
+      {
+        "name": "leskhueragem",
+        "likes": 32,
+        "createdAt": "2014-03-06T19:26:03.920Z",
+        "updatedAt": "2014-03-06T19:43:27.517Z",
+        "id": 2
+      },
+      {
+        "createdAt": "2014-03-06T19:32:27.396Z",
+        "updatedAt": "2014-03-06T19:32:27.396Z",
+        "id": 4
+      }
+    ]
   },
   "schema": {
     "game": {
@@ -22,6 +35,8 @@
     }
   },
   "counters": {
-    "game": {}
+    "game": {
+      "id": 4
+    }
   }
 }
