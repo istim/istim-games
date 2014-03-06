@@ -9,14 +9,14 @@
 module.exports = {
 
   attributes: {
-  	
+
   	name: 'string',
   	releaseDate: 'date',
   	description: 'text',
   	publisher: 'integer',
   	likes: 'integer',
   	systemRequirements: 'text'
-  	
+
   }
 
 };
