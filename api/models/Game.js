@@ -14,6 +14,7 @@ module.exports = {
   	releaseDate: 'date',
   	description: 'text',
   	publisher: 'integer',
+    url: 'string',
   	likes: 'integer',
   	systemRequirements: 'text'
 
