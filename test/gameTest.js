@@ -57,7 +57,7 @@ describe('Routing', function() {
 
     it('should return status 200 after UPDATING a game', function(done) {
       request(url)
-        .put('/game/1')
+        .put('/game/5')
         .send({ name: 'Joguim dos Leleks 3 - Lesk\'s Ascencion',})
         .end(function(err, res) {
             if (err) {
@@ -70,7 +70,7 @@ describe('Routing', function() {
 
     it('should return status 200 after DELETING a game', function(done) {
       request(url)
-        .del('/game/1')
+        .del('/game/22')
         .end(function(err, res) {
             if (err) {
               throw err;
