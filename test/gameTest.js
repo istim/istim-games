@@ -1,4 +1,5 @@
 var should = require('should');
+var request = require('supertest');
 
 describe('Routing', function() {
   var url = 'http://localhost:1337';
@@ -25,43 +26,39 @@ describe('Routing', function() {
 
   describe('API - No errors path', function() {
 
-    it('should return status 200 after CREATING a game', function(done) {
+    it('should return status 201 after CREATING a game', function(done) {
       request(url)
-        .post('/api/buses')
-        .send({ nome: bus.nome})
-        .send({ lat: bus.lat })
-        .send({ lng: bus.lng })
+        .post('/game/create')
+        .send(game)
         .end(function(err, res) {
             if (err) {
               throw err;
             }
-            res.should.have.status(200);
+            res.should.have.status(201);
             done();
         });
     });
 
-    it('should return a json containing an array of buses', function(done){
+    it('should return a json containing an array of games', function(done){
       request(url)
-        .get('/api/buses')
+        .get('/game')
         .expect(200)
         .expect('Content-Type', /json/)
         .end(function(err, res){
           if(err)
             return done(err)
           res.body.should.be.instanceof(Array);
-          //assign the id to our bus, so we can delete it later.
+          //assign the id to our game, so we can delete it later.
           var id = res.body[0]._id;
-          bus.id = id;
+          game.id = id;
           done();
         });
     });
 
-    it('should return status 200 after UPDATING a bus', function(done) {
+    it('should return status 200 after UPDATING a game', function(done) {
       request(url)
-        .put('/api/buses/' + bus.nome)
-        .send({ lat: bus.lat })
-        .send({ lng: bus.lng })
-        .send({ nome: bus.nome})
+        .put('/game/1')
+        .send({ name: 'Joguim dos Leleks 3 - Lesk\'s Ascencion',})
         .end(function(err, res) {
             if (err) {
               throw err;
@@ -71,9 +68,9 @@ describe('Routing', function() {
         });
     });
 
-    it('should return status 200 after DELETING a bus', function(done) {
+    it('should return status 200 after DELETING a game', function(done) {
       request(url)
-        .del('/api/buses/' + bus.id)
+        .del('/game/1')
         .end(function(err, res) {
             if (err) {
               throw err;
@@ -83,55 +80,55 @@ describe('Routing', function() {
         });
     });
 
-    it('should return status 404 after DELETING a bus that does not exist', function(done) {
-      request(url)
-        .del('/api/buses/' + bus.id)
-        .end(function(err, res) {
-            if (err) {
-              throw err;
-            }
-            res.should.have.status(404);
-            done();
-        });
-    });
-  });
-
-  describe('Views request', function(){
-
-    it('should return status 200 when requesting the main view', function(done) {
-      request(url)
-        .get('/')
-        .end(function(err, res) {
-          if(err){
-            throw err;
-          }
-          res.should.have.status(200);
-          done();
-        });
-    });
-
-    it('should return status 200 when requesting the emmiter view', function(done) {
-      request(url)
-        .get('/emmiter')
-        .end(function(err, res) {
-          if(err){
-            throw err;
-          }
-          res.should.have.status(200);
-          done();
-        });
-    });
-
-    it('should return status 200 when requesting the database view', function(done) {
-      request(url)
-        .get('/dbadmin')
-        .end(function(err, res) {
-          if(err){
-            throw err;
-          }
-          res.should.have.status(200);
-          done();
-        });
-    });
+    // it('should return status 404 after DELETING a game that does not exist', function(done) {
+    //   request(url)
+    //     .del('game/19')
+    //     .end(function(err, res) {
+    //         if (err) {
+    //           throw err;
+    //         }
+    //         res.should.have.status(404);
+    //         done();
+    //     });
+    // });
+  //});
+  //
+  // describe('Views request', function(){
+  //
+  //   it('should return status 200 when requesting the main view', function(done) {
+  //     request(url)
+  //       .get('/')
+  //       .end(function(err, res) {
+  //         if(err){
+  //           throw err;
+  //         }
+  //         res.should.have.status(200);
+  //         done();
+  //       });
+  //   });
+  //
+  //   it('should return status 200 when requesting the emmiter view', function(done) {
+  //     request(url)
+  //       .get('/emmiter')
+  //       .end(function(err, res) {
+  //         if(err){
+  //           throw err;
+  //         }
+  //         res.should.have.status(200);
+  //         done();
+  //       });
+  //   });
+  //
+  //   it('should return status 200 when requesting the database view', function(done) {
+  //     request(url)
+  //       .get('/dbadmin')
+  //       .end(function(err, res) {
+  //         if(err){
+  //           throw err;
+  //         }
+  //         res.should.have.status(200);
+  //         done();
+  //       });
+  //   });
   });
 });
