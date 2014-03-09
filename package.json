@@ -1,5 +1,5 @@
 {
-    "name": "istim-games",
+    "name": "game-api",
     "private": true,
     "version": "0.0.0",
     "description": "a Sails application",
