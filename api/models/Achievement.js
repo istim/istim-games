@@ -1,5 +1,5 @@
 /**
- * Game
+ * Achievement
  *
  * @module      :: Model
  * @description :: A short summary of how this model works and what it represents.
@@ -9,14 +9,11 @@
 module.exports = {
 
   attributes: {
-
-  	name: 'string',
-  	releaseDate: 'date',
+  	
+  	title: 'string',
   	description: 'text',
-  	publisher: 'integer',
-  	url: 'string',
-  	likes: 'integer',
-  	systemRequirements:'text'
+  	icon: 'string',
+  	game: 'integer'
 
   	/* e.g.
   	nickname: 'string'
