@@ -1,6 +1,7 @@
 istim-games
 ============
-  
+[![Build Status](https://travis-ci.org/istim/istim-games.png?branch=master)](https://travis-ci.org/istim/istim-games)
+
 Game manager API for the Istim Gaming Platform.
  
  
