@@ -1,5 +1,8 @@
 before_script: 
   - sails lift&
+notifications:
+  webhooks:
+    - https://diredevs.slack.com/services/hooks/travis?token=CVIF9zy6CcTWbtRQh5cAHEVJ
 language: node_js
 node_js:
   - "0.10"
