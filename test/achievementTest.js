@@ -13,7 +13,7 @@ describe('Routing', function() {
     systemRequirements: "Um PC que rode Crysis"
   };
 
-  var achievment = {
+  var achievement = {
     title: 'Let\'s Lek',
     decription: 'Domine o poder da zuera',
     icon: 'http://imgsapp.oimparcial.com.br/app/noticia_130321921166/2013/02/15/129893/20130215154254551863i.jpg',
@@ -26,12 +26,12 @@ describe('Routing', function() {
 
   describe('API - No errors path', function() {
 
-    it('should return status 201 after CREATING a achievment for a game that exists', function(done) {
+    it('should return status 201 after CREATING a achievement for a game that exists', function(done) {
       request(url)
         .post('/game/create')
         .send(game)
-        .post('/achievment/create')
-        .send(achievment)
+        .post('/achievement/create')
+        .send(achievement)
         .end(function(err, res) {
             if (err) {
               throw err;
@@ -41,9 +41,9 @@ describe('Routing', function() {
         });
     });
 
-    it('should return a json containing an array of achievments', function(done){
+    it('should return a json containing an array of achievements', function(done){
       request(url)
-        .get('/achievment')
+        .get('/achievement')
         .expect(200)
         .expect('Content-Type', /json/)
         .end(function(err, res){
@@ -52,14 +52,14 @@ describe('Routing', function() {
           res.body.should.be.instanceof(Array);
           //assign the id to our game, so we can delete it later.
           var id = res.body[0]._id;
-          achievment.id = id;
+          achievement.id = id;
           done();
         });
     });
 
-    it('should return status 200 after UPDATING a achievment', function(done) {
+    it('should return status 200 after UPDATING a achievement', function(done) {
       request(url)
-        .put('/achievment/1')
+        .put('/achievement/1')
         .send({ title: 'Let\'s Lelek',})
         .end(function(err, res) {
             if (err) {
@@ -70,9 +70,9 @@ describe('Routing', function() {
         });
     });
 
-    it('should return status 200 after DELETING a achievment', function(done) {
+    it('should return status 200 after DELETING a achievement', function(done) {
       request(url)
-        .del('/achievment/1')
+        .del('/achievement/1')
         .end(function(err, res) {
             if (err) {
               throw err;
