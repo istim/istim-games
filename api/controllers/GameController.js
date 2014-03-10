@@ -40,6 +40,14 @@ module.exports = {
     });
   },
 
+  achievements: function (req, res) {
+    Game.findOne(req.param('id')).done(function(err, game){
+      Achievement.find().where({game: game.id}).exec(function(err, achievements) {
+        return res.json(achievements);
+      });
+    });
+  },
+
   /**
    * Action blueprints:
    *    `/game/releaseDate`

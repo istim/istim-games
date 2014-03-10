@@ -303,6 +303,17 @@
         "updatedAt": "2014-03-06T20:48:51.474Z",
         "id": 2
       }
+    ],
+    "achievement": [
+      {
+        "title": "Flesh meat",
+        "description": "Kill someone using Pudge's ultimate ability Dismember",
+        "icon": "http://www.troll.me/images2/pudge/ahhh-fresh-meat.jpg",
+        "game": 5,
+        "createdAt": "2014-03-10T03:44:21.119Z",
+        "updatedAt": "2014-03-10T03:44:21.119Z",
+        "id": 1
+      }
     ]
   },
   "schema": {
@@ -351,6 +362,35 @@
         "type": "datetime",
         "default": "NOW"
       }
+    },
+    "achievement": {
+      "title": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "icon": {
+        "type": "string"
+      },
+      "game": {
+        "type": "integer"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "defaultsTo": "AUTO_INCREMENT",
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime",
+        "default": "NOW"
+      },
+      "updatedAt": {
+        "type": "datetime",
+        "default": "NOW"
+      }
     }
   },
   "counters": {
@@ -359,6 +399,9 @@
     },
     "achievment": {
       "id": 2
+    },
+    "achievement": {
+      "id": 1
     }
   }
 }
