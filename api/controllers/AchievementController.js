@@ -18,13 +18,14 @@
 module.exports = {
   
   create: function (req, res) {
-    Game.findOne(req.params.game).done(function(err, game){
+    Game.findOne(req.body.game).done(function(err, game){
+
       if (!game) {
-        return res.send(500, {error: 'No game found with this id'});
+        return res.send(500, req.body.game);
       }
 
-      Achievement.save(req.params, function(err, ach) {
-        return res.json(ach);
+      Achievement.create(req.body).done(function(err, ach) {
+        return res.send(201, ach);
       });
     });
   },
