@@ -2,7 +2,7 @@
  * GameController
  *
  * @module      :: Controller
- * @description	:: A set of functions called `actions`.
+ * @description :: A set of functions called `actions`.
  *
  *                 Actions contain code telling Sails how to respond to a certain type of request.
  *                 (i.e. do stuff, then send some JSON, show an HTML page, or redirect to another URL)
@@ -22,7 +22,7 @@ module.exports = {
    * Action blueprints:
    *    `/game/name`
    */
-   name: function (req, res) {
+  name: function (req, res) {
     
     // Send a JSON response
     return res.json({
@@ -44,7 +44,7 @@ module.exports = {
    * Action blueprints:
    *    `/game/releaseDate`
    */
-   releaseDate: function (req, res) {
+  releaseDate: function (req, res) {
     
     // Send a JSON response
     return res.json({
@@ -57,7 +57,7 @@ module.exports = {
    * Action blueprints:
    *    `/game/description`
    */
-   description: function (req, res) {
+  description: function (req, res) {
     
     // Send a JSON response
     return res.json({
