@@ -20,6 +20,10 @@ var achievement = {
   game: 100
 }
 
+var new_title= 'Leeeet\'s Leeeeek';
+var new_description= 'Sobrecarregue o poder da zuera';
+var new_icon= 'http://s2.glbimg.com/BiOKNfC19n_I0me7_UOGHCtwfgA=/620x0/s.glbimg.com/jo/eg/f/original/2013/03/22/mg_5580.jpg';
+
 suite.use('localhost', 1337)
   .setHeader('Content-Type', 'application/json')
 
@@ -29,13 +33,13 @@ suite.use('localhost', 1337)
   .post('achievement/create', achievement)
     .expect(201)
 
-suite.undiscuss()
+.undiscuss()
 
   .discuss('list all achievements')
   .get('/achievement')
     .expect(200)
 
-suite.undiscuss()
+.undiscuss()
 
   .discuss('show one achievement')
   .get('/achievement/1')
@@ -46,12 +50,55 @@ suite.undiscuss()
       delete resJson['updatedAt'];
       delete resJson['id'];
 
-      console.log(JSON.stringify(resJson));
+      //console.log(JSON.stringify(resJson));
 
       assert.equal(JSON.stringify(resJson),
        JSON.stringify(achievement));
     })
 
+.undiscuss()
+
+//   .discuss('update a achievment title')
+//   .put('/achievment/1',{title: new_title})
+//     .expect(200)
+//     .expect('successfully updates the achievment\'s title', function(err, res, body) {
+//
+//     var resJson = JSON.parse(body);
+//
+//     //console.log(JSON.stringify(resJson));
+//
+//     assert.equal(resJson['title'], new_title);
+//    })
+//
+// .undiscuss()
+//
+//   .discuss('update a achievment description')
+//   .put('/achievment/1',{description: new_description})
+//   .expect(200)
+//   .expect('successfully updates the achievment\'s description', function(err, res, body) {
+//
+//   var resJson = JSON.parse(body);
+//
+//   //console.log(JSON.stringify(resJson));
+//
+//   assert.equal(resJson['description'], new_description);
+//  })
+//
+// .undiscuss()
+//
+//   .discuss('update a achievment icon')
+//   .put('/achievment/1',{description: new_icon})
+//   .expect(200)
+//   .expect('successfully updates the achievment\'s icon', function(err, res, body) {
+//
+//   var resJson = JSON.parse(body);
+//
+//   //console.log(JSON.stringify(resJson));
+//
+//   assert.equal(resJson['description'], new_icon);
+//   })
+//
+// .undiscuss()
 
   .del('/game/100')
     .expect(200)
