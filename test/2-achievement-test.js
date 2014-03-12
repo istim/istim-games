@@ -3,17 +3,29 @@ var APIeasy = require('api-easy'),
 
 var suite = APIeasy.describe('Achievement');
 
+var game = {
+  name: 'Joguim dos Leleks - Lek Begins',
+  description: 'Conheça a primeira instância da saga Lek!',
+  releaseDate: new Date(),
+  publisher: 1,
+  likes: 0,
+  systemRequirements: "Um PC da Xuxa",
+  id: 11
+};
+
 var achievement = {
   title: 'Let\'s Lek',
   description: 'Domine o poder da zuera',
   icon: 'http://imgsapp.oimparcial.com.br/app/noticia_130321921166/2013/02/15/129893/20130215154254551863i.jpg',
-  game: 10
+  game: 11
 }
 
 suite.use('localhost', 1337)
   .setHeader('Content-Type', 'application/json')
 
-  .discuss('create a achievement')
+  .discuss('create a achievement for an existing game')
+  .post('game/create', game)
+    .expect(201)
   .post('achievement/create', achievement)
     .expect(201)
 

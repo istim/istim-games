@@ -15,7 +15,9 @@ var game = {
 
 var new_name='Joguim dos Leleks 3 - Rise of the TecnoLesk';
 var new_description= 'Depois de jogar Joguim dos Leleks 2, conheça a continuação da saga em prol da lekzueragem new age.'
+var new_publisher = 2
 var new_systemRequirements= 'Um PC do Milhão';
+var likes = 0;
 
 suite.use('localhost', 1337)
   .setHeader('Content-Type', 'application/json')
@@ -23,18 +25,21 @@ suite.use('localhost', 1337)
   .discuss('create a game')
   .post('game/create', game)
     .expect(201)
-  .undiscuss()
+
+suite.undiscuss()
 
   .discuss('get all games')
   .get('/game')
     .expect(200)
-  .undiscuss()
+
+suite.undiscuss()
 
   .discuss('get a single game')
   .get('/game/10')
     .expect(200)
     .expect()
-  .undiscuss()
+
+suite.undiscuss()
 
   .discuss('update a game name')
   .put('/game/10',{name: 'Joguim dos Leleks 3 - Rise of the TecnoLesk'})
@@ -47,27 +52,48 @@ suite.use('localhost', 1337)
 
     assert.equal(resJson['name'], new_name);
    })
-  .undiscuss()
+
+suite.undiscuss()
 
   .discuss('update a game description')
   .put('/game/10',{description: new_description})
     .expect(200)
-  .undiscuss()
+    .expect('successfully updates the game\'s description', function(err, res, body) {
+      var resJson = JSON.parse(body);
+
+      //console.log(JSON.stringify(resJson));
+
+      assert.equal(resJson['description'], new_description);
+    })
+
+suite.undiscuss()
 
   .discuss('update a game publisher')
-  .put('/game/10',{publisher: 2})
+  .put('/game/10',{publisher: new_publisher})
     .expect(200)
-  .undiscuss()
+    .expect('successfully updates the game\'s publisher', function(err, res, body){
+      var resJson = JSON.parse(body);
+
+      assert.equal(resJson['publisher'], new_publisher);
+    })
+
+suite.undiscuss()
 
   .discuss('like a game')
   .post('/game/10/like')
     .expect(200)
-  .undiscuss()
+    .expect('successfully updates the game\'s like quantity', function(err, res, body) {
+      var resJson = JSON.parse(body);
+      assert.equal(resJson['likes'], ++likes);
+    })
+
+suite.undiscuss()
 
   .discuss('update a game system requirement')
   .put('/game/10',{systemRequirements: new_systemRequirements})
     .expect(200)
-  .undiscuss()
+
+suite.undiscuss()
 
   // .discuss('not be able to update a game id')
   // .put('/game/10',{id: 2})
