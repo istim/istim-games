@@ -24,7 +24,7 @@ suite.undiscuss()
     .expect(200)
 
 suite.undiscuss()
-  
+
   .discuss('show one achievement')
   .get('/achievement/1')
     .expect(200)
