@@ -7,17 +7,17 @@ var game = {
   name: 'Joguim dos Leleks - Lek Begins',
   description: 'Conheça a primeira instância da saga Lek!',
   releaseDate: new Date(),
-  publisher: 1,
+  publisher: 2,
   likes: 0,
   systemRequirements: "Um PC da Xuxa",
-  id: 11
+  id: 100
 };
 
 var achievement = {
   title: 'Let\'s Lek',
   description: 'Domine o poder da zuera',
   icon: 'http://imgsapp.oimparcial.com.br/app/noticia_130321921166/2013/02/15/129893/20130215154254551863i.jpg',
-  game: 11
+  game: 100
 }
 
 suite.use('localhost', 1337)
@@ -51,5 +51,9 @@ suite.undiscuss()
       assert.equal(JSON.stringify(resJson),
        JSON.stringify(achievement));
     })
+
+
+  .del('/game/100')
+    .expect(200)
 
 .export(module)

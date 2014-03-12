@@ -15,7 +15,7 @@ var game = {
 
 var new_name='Joguim dos Leleks 3 - Rise of the TecnoLesk';
 var new_description= 'Depois de jogar Joguim dos Leleks 2, conheça a continuação da saga em prol da lekzueragem new age.'
-var new_publisher = 2
+var new_publisher = "2"
 var new_systemRequirements= 'Um PC do Milhão';
 var likes = 0;
 
@@ -38,6 +38,14 @@ suite.undiscuss()
   .get('/game/10')
     .expect(200)
     .expect()
+    .expect('game to be the one that was sent', function(err, res, body) {
+      var resJson = JSON.parse(body);
+      delete resJson['createdAt'];
+      delete resJson['updatedAt'];
+
+      assert.equal(JSON.stringify(resJson),
+       JSON.stringify(game));
+    })
 
 suite.undiscuss()
 
@@ -95,19 +103,10 @@ suite.undiscuss()
 
 suite.undiscuss()
 
-  // .discuss('not be able to update a game id')
-  // .put('/game/10',{id: 2})
-  //   .expect(404)
-  // .undiscuss()
-
-  // .discuss('not be able to update a game likes number')
-  // .put('/game/10',{id: 2})
-  //   .expect(404)
-  // .undiscuss()
-
   .discuss('delete a game')
   .del('/game/10')
     .expect(200)
-  .undiscuss()
+
+suite.undiscuss()
 
 .export(module)
