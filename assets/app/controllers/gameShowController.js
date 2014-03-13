@@ -1,4 +1,4 @@
-var istimGames = angular.module('istimGames', []);
+var istimGames = angular.module('istimGames', ['ngRoute']);
 
 function gameShowController($scope, $http) {
 	$scope.formData = {};
