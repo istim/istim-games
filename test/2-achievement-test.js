@@ -1,4 +1,4 @@
-var APIeasy = require('api-easy'),
+/*var APIeasy = require('api-easy'),
     assert = require('assert');
 
 var suite = APIeasy.describe('Achievement');
@@ -17,8 +17,17 @@ var achievement = {
   title: 'Let\'s Lek',
   description: 'Domine o poder da zuera',
   icon: 'http://imgsapp.oimparcial.com.br/app/noticia_130321921166/2013/02/15/129893/20130215154254551863i.jpg',
-  game: 100
-}
+  game: 100,
+  id: 1
+};
+
+var achievement2 = {
+  title: 'Leskhuerage',
+  description: 'Conquista secreta',
+  icon: 'http://imgsapp.oimparcial.com.br/app/noticia_130321921166/2013/02/15/129893/20130215154254551863i.jpg',
+  game: 100,
+  id: 2
+};
 
 var new_title= 'Leeeet\'s Leeeeek';
 var new_description= 'Sobrecarregue o poder da zuera';
@@ -31,6 +40,8 @@ suite.use('localhost', 1337)
   .post('game/create', game)
     .expect(201)
   .post('achievement/create', achievement)
+    .expect(201)
+  .post('achievement/create', achievement2)
     .expect(201)
 
 .undiscuss()
@@ -48,7 +59,6 @@ suite.use('localhost', 1337)
       var resJson = JSON.parse(body);
       delete resJson['createdAt'];
       delete resJson['updatedAt'];
-      delete resJson['id'];
 
       //console.log(JSON.stringify(resJson));
 
@@ -57,6 +67,16 @@ suite.use('localhost', 1337)
     })
 
 .undiscuss()
+
+  .discuss('delete game made for test')
+  .del('/game/100')
+    .expect(200)
+
+//  .discuss('all game achievements must be deleted')
+//  .get('/achievement/2')
+//    .expect(404)
+//  .get('/achievement/1')
+//   .expect(404)
 
 //   .discuss('update a achievment title')
 //   .put('/achievment/1',{title: new_title})
@@ -99,8 +119,8 @@ suite.use('localhost', 1337)
 //   })
 //
 // .undiscuss()
+  
 
-  .del('/game/100')
-    .expect(200)
 
 .export(module)
+*/

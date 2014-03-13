@@ -1,5 +1,6 @@
-var should = require('should');
-var request = require('supertest');
+var request = require("supertest")
+var assert = require("assert");
+var should = require("should");
 
 describe('Routing', function() {
   var url = 'http://localhost:1337';
@@ -10,7 +11,8 @@ describe('Routing', function() {
     releaseDate: new Date(),
     publisher: 1,
     likes: 0,
-    systemRequirements: "Um PC que rode Crysis"
+    systemRequirements: "Um PC que rode Crysis",
+    id: 5
   };
 
   var achievement = {
@@ -20,64 +22,28 @@ describe('Routing', function() {
     game: 5
   }
 
-  before(function(done) {
-    done();
-  });
-
   describe('API - No errors path', function() {
 
     it('should return status 201 after CREATING a achievement for a game that exists', function(done) {
       request(url)
         .post('/game/create')
         .send(game)
+        .expect(201)
+        .end(function(err, res) {
+          if (err) {
+            throw err;
+          }
+        });
+      
+      request(url)
         .post('/achievement/create')
         .send(achievement)
+        .expect(201)
         .end(function(err, res) {
             if (err) {
               throw err;
             }
-            res.should.have.status(201);
-            done();
-        });
-    });
 
-    it('should return a json containing an array of achievements', function(done){
-      request(url)
-        .get('/achievement')
-        .expect(200)
-        .expect('Content-Type', /json/)
-        .end(function(err, res){
-          if(err)
-            return done(err)
-          res.body.should.be.instanceof(Array);
-          //assign the id to our game, so we can delete it later.
-          var id = res.body[0]._id;
-          achievement.id = id;
-          done();
-        });
-    });
-
-    it('should return status 200 after UPDATING a achievement', function(done) {
-      request(url)
-        .put('/achievement/1')
-        .send({ title: 'Let\'s Lelek',})
-        .end(function(err, res) {
-            if (err) {
-              throw err;
-            }
-            res.should.have.status(200);
-            done();
-        });
-    });
-
-    it('should return status 200 after DELETING a achievement', function(done) {
-      request(url)
-        .del('/achievement/1')
-        .end(function(err, res) {
-            if (err) {
-              throw err;
-            }
-            res.should.have.status(200);
             done();
         });
     });

@@ -1,4 +1,4 @@
-var APIeasy = require('api-easy'),
+/*var APIeasy = require('api-easy'),
     assert = require('assert');
 
 var suite = APIeasy.describe('Game');
@@ -110,3 +110,4 @@ suite.use('localhost', 1337)
 .undiscuss()
 
 .export(module)
+*/

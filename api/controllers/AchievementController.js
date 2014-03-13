@@ -21,7 +21,7 @@ module.exports = {
     Game.findOne(req.body.game).done(function(err, game){
 
       if (!game) {
-        return res.send(500, req.body.game);
+        return res.send(req.body.game, 500);
       }
 
       Achievement.create(req.body).done(function(err, ach) {
