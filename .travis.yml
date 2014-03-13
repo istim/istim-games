@@ -1,5 +1,7 @@
 before_script:
   - npm install -g mocha
+  - npm install -g supertest
+  - npm install -g should
   - sails lift&
 notifications:
   webhooks:
