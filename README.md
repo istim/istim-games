@@ -23,9 +23,17 @@ Game manager API for the Istim Gaming Platform.
  
 ### Achievements
   - Create achievements for a game
+    - ```POST to achievement/create```
   - Edit achievements info
+    - ```PUT to achievement/:id```
   - Remove achievement
-  - Search available achievements for a specific game
+    - ```DELETE to achievement/:id```
+  - Get available achievements for a specific game
+    - ```GET to game/:id/achievements```
+  - Get all available achievements
+    - ```GET to achievement/```
+  - Get a  achievment
+    - ```GET to achievement/:id```
  
 ## Dependencies
 ### User API
