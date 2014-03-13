@@ -9,9 +9,17 @@ Game manager API for the Istim Gaming Platform.
 ## Services
 ### Games
   - Publish game
+    - ```POST to game/create```
   - Edit game info
+     - ```PUT to game/:id```
   - Remove game
-  - Search for available games
+    - ```DELETE to game/:id```
+  - Like a game
+    - ```POST to game/:id/like```
+  - Get all available games
+    - ```GET to game/```
+  - Get a  game
+    - ```GET to game/:id```
  
 ### Achievements
   - Create achievements for a game
