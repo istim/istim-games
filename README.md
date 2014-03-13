@@ -39,3 +39,28 @@ Game manager API for the Istim Gaming Platform.
 ### User API
   - Authentication
   
+
+## Examples of game and achievement
+
+``` 
+
+   var game = {
+    name: 'Joguim dos Leleks - Lesk\'s Origin',
+    description: 'Joguim dos Leleks, a origem das lelekagens',
+    releaseDate: new Date(),
+    publisher: 1,
+    likes: 0,
+    id: 1,
+    systemRequirements: "Um PC da Xuxa"
+  };
+``` 
+``` 
+  var achievement = {
+    title: 'Let\'s Lek',
+    decription: 'Domine o poder da zuera',
+    icon: 'http://imgsapp.oimparcial.com.br/app/noticia_130321921166/2013/02/15/129893/20130215154254551863i.jpg',
+    game: 5,
+    id: 1
+  }
+
+```
