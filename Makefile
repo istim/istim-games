@@ -1,4 +1,4 @@
 test:
-	@./node_modules/.bin/mocha -R spec
+	mocha -R spec
  
 .PHONY: test
