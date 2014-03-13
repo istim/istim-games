@@ -51,7 +51,7 @@ Game manager API for the Istim Gaming Platform.
     publisher: 1,
     likes: 0,
     id: 1,
-    systemRequirements: "Um PC que da Xuxa"
+    systemRequirements: "Um PC da Xuxa"
   };
 ``` 
 ``` 
