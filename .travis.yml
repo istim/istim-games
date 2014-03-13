@@ -1,5 +1,6 @@
 before_script:
   - npm install -g mocha
+  - npm install -g assert
   - npm install -g supertest
   - npm install -g should
   - sails lift&

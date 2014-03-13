@@ -36,15 +36,71 @@ describe('Routing', function() {
         });
     });
 
-    it('should return status 200 after UPDATING a game', function(done) {
+    it('should return status 200 after UPDATING a game\'s name', function(done) {
       request(url)
         .put('/game/1')
-        .send({ name: 'Joguim dos Leleks 3 - Lesk\'s Ascencion',})
+        .send({name: new_name})
         .expect(200)
         .end(function(err, res) {
             if (err) {
               throw err;
             }
+            assert.equal(res.body.name, new_name)
+            done();
+        });
+    });
+
+    it('should return status 200 after UPDATING a game\'s description', function(done) {
+      request(url)
+        .put('/game/1')
+        .send({description: new_description})
+        .expect(200)
+        .end(function(err, res) {
+            if (err) {
+              throw err;
+            }
+            assert.equal(res.body.description, new_description)
+            done();
+        });
+    });
+
+    it('should return status 200 after UPDATING a game\'s publisher', function(done) {
+      request(url)
+        .put('/game/1')
+        .send({publisher: new_publisher})
+        .expect(200)
+        .end(function(err, res) {
+            if (err) {
+              throw err;
+            }
+            assert.equal(res.body.publisher, new_publisher)
+            done();
+        });
+    });
+
+    it('should return status 200 after UPDATING a game\'s system requirements', function(done) {
+      request(url)
+        .put('/game/1')
+        .send({systemRequirements: new_systemRequirements})
+        .expect(200)
+        .end(function(err, res) {
+            if (err) {
+              throw err;
+            }
+            assert.equal(res.body.systemRequirements, new_systemRequirements)
+            done();
+        });
+    });
+
+    it('should return status 200 after UPDATING send a like to a game', function(done) {
+      request(url)
+        .post('/game/1/like')
+        .expect(200)
+        .end(function(err, res) {
+            if (err) {
+              throw err;
+            }
+            assert.equal(res.body.likes, ++likes)
             done();
         });
     });
@@ -61,55 +117,5 @@ describe('Routing', function() {
         });
     });
 
-    // it('should return status 404 after DELETING a game that does not exist', function(done) {
-    //   request(url)
-    //     .del('game/19')
-    //     .end(function(err, res) {
-    //         if (err) {
-    //           throw err;
-    //         }
-    //         res.should.have.status(404);
-    //         done();
-    //     });
-    // });
-  //});
-  //
-  // describe('Views request', function(){
-  //
-  //   it('should return status 200 when requesting the main view', function(done) {
-  //     request(url)
-  //       .get('/')
-  //       .end(function(err, res) {
-  //         if(err){
-  //           throw err;
-  //         }
-  //         res.should.have.status(200);
-  //         done();
-  //       });
-  //   });
-  //
-  //   it('should return status 200 when requesting the emmiter view', function(done) {
-  //     request(url)
-  //       .get('/emmiter')
-  //       .end(function(err, res) {
-  //         if(err){
-  //           throw err;
-  //         }
-  //         res.should.have.status(200);
-  //         done();
-  //       });
-  //   });
-  //
-  //   it('should return status 200 when requesting the database view', function(done) {
-  //     request(url)
-  //       .get('/dbadmin')
-  //       .end(function(err, res) {
-  //         if(err){
-  //           throw err;
-  //         }
-  //         res.should.have.status(200);
-  //         done();
-  //       });
-  //   });
   });
 });
