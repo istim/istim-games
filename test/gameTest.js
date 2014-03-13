@@ -12,7 +12,7 @@ describe('Routing', function() {
     publisher: 1,
     likes: 0,
     id: 1,
-    systemRequirements: "Um PC que da Xuxa"
+    systemRequirements: "Um PC da Xuxa"
   };
 
   var new_name='Joguim dos Leleks 3 - Rise of the TecnoLesk';
