@@ -16,12 +16,12 @@
  */
 
 module.exports = {
-  
+
   create: function (req, res) {
     Game.findOne(req.body.game).done(function(err, game){
 
       if (!game) {
-        return res.send(req.body.game, 500);
+        return res.send(req.body.game, 422);
       }
 
       Achievement.create(req.body).done(function(err, ach) {
@@ -36,5 +36,5 @@ module.exports = {
    */
   _config: {}
 
-  
+
 };
