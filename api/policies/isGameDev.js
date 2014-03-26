@@ -10,5 +10,5 @@
 module.exports = function(req, res, next) {
 
   //only for mock reasons
-  return next();  
+  return next();
 };
