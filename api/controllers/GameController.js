@@ -17,6 +17,10 @@
 
 module.exports = {
 
+  // create : ['isAuthenticated', 'isGameDev'],
+  // edit : ['isAuthenticated', 'isGameOwner', 'isGameDev'],
+  // update : ['isAuthenticated', 'isGameOwner', 'isGameDev'],
+  // destroy : ['isAuthenticated', 'isGameOwner', 'isGameDev'],
 
   like: function (req, res){
     Game.findOne(req.param('id')).done(function(err, game){
