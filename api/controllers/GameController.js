@@ -16,19 +16,6 @@
  */
 
 module.exports = {
-    
-  
-  /**
-   * Action blueprints:
-   *    `/game/name`
-   */
-  name: function (req, res) {
-    
-    // Send a JSON response
-    return res.json({
-      hello: 'world'
-    });
-  },
 
 
   like: function (req, res){
@@ -49,38 +36,10 @@ module.exports = {
   },
 
   /**
-   * Action blueprints:
-   *    `/game/releaseDate`
-   */
-  releaseDate: function (req, res) {
-    
-    // Send a JSON response
-    return res.json({
-      hello: 'world'
-    });
-  },
-
-
-  /**
-   * Action blueprints:
-   *    `/game/description`
-   */
-  description: function (req, res) {
-    
-    // Send a JSON response
-    return res.json({
-      hello: 'world'
-    });
-  },
-
-
-
-
-  /**
    * Overrides for the settings in `config/controllers.js`
    * (specific to GameController)
    */
   _config: {}
 
-  
+
 };
