@@ -21,23 +21,16 @@ module.exports = function(req, res, next) {
         method : 'GET'
     };
 
-	var post_req = http.request(options, function(res) {
-      res.setEncoding('utf8');
-      res.on('data', function (chunk) {    	
-        game = chunk;
-        console.log("game:");
-        console.log(game);
-      });
-  	});
-
-	console.log("game de novo: \n"+game);
-
-  	post_req.end();
-
-  	console.log("game de novo1: \n"+game);
-
-	if(game.userId == parseInt(req.body.userId))
-		return next();
-	else
-		return res.forbidden('You are not permitted to perform this action.');
+	http.get(options, function(resp){
+	  resp.on('data', function(chunk){
+	    game = JSON.parse(chunk)
+	    console.log(game);
+	    if(game.userId == parseInt(req.body.userId))
+			return next();
+		else
+			return res.forbidden('You are not permitted to perform this action.');
+	  });
+	}).on("error", function(e){
+	  console.log("Got error: " + e.message);
+	});
 };
