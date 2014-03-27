@@ -1,10 +1,7 @@
-var istimGames = angular.module('istimGames', ['ngRoute']);
+var istimGames = angular.module('istimGames', []);
 
 function gameShowController($scope, $http) {
 	$scope.formData = {};
-	$scope.game;
-
-	console.log($scope.formData);
 
 	// when landing on the page, get all games and show them
 

@@ -24,4 +24,15 @@ function gameIndexController($scope, $http) {
 				console.log('Error: ' + data);
 			});
 	};
+
+	$scope.gameShow = function(id) {
+		$http.post("http://localhost:1337/game/create", $scope.formData)
+			.success(function(data) {
+				$scope.formData = {};
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
+	};
 }

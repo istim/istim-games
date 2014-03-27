@@ -40,7 +40,7 @@
                             <th>Release Date</th>
                         </tr>
                         <tr ng-repeat="game in games">
-                            <td><a href={{"./gameShow.html?id="+game.id}}>{{game.name}}</a></td>
+                            <td><a href={{"./gameShow.html?gameId="+game.id}}>{{game.name}}</a></td>
                             <td>{{game.createdAt}}</td>
                         </tr>
                     </table>
