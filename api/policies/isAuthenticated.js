@@ -17,26 +17,8 @@ var authHelper = function(userId){
 }
 
 module.exports = function(req, res, next) {
-  console.log("******************************************");
-  console.log("******************************************");
-  console.log("******************************************");
-  //console.log(req);
-
   if(authHelper(req.body.userId)) //sei que tá errado isso ai, mas é só a ideia :P
     return next();
   else
     return res.forbidden('You are not permitted to perform this action.');
-
-  // User is allowed, proceed to the next policy,
-  // or if this is the last policy, the controller
-  // if (req.session.authenticated) {
-  //   return next();
-  // }
-  //
-  // // User is not allowed
-  // // (default res.forbidden() behavior can be overridden in `config/403.js`)
-  // return res.forbidden('You are not permitted to perform this action.');
-
-  //only for mock reasons
-  return next();
 };

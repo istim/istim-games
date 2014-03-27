@@ -7,10 +7,10 @@
  * @docs        :: http://sailsjs.org/#!documentation/policies
  *
  */
-function httpGet(theUrl){
+function httpGet(url){
     var xmlHttp = null;
     xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", theUrl, true );
+    xmlHttp.open("GET", url, true );
     xmlHttp.send();
     var answer = xmlHttp.responseText;
     return answer;
@@ -18,6 +18,8 @@ function httpGet(theUrl){
 
 module.exports = function(req, res, next) {
 	var game = httpGet(req.body.gameId);
+
+	console.log(game);
 
 	if(game.userId == req.body.userId)
 		return next();
