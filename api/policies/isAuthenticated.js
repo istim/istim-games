@@ -17,8 +17,11 @@ var authHelper = function(userId){
 }
 
 module.exports = function(req, res, next) {
-
-  if(authHelpter(req.userId)) //sei que tá errado isso ai, mas é só a ideia :P
+  console.log("******************************************");
+  console.log("******************************************");
+  console.log("******************************************");
+  console.log(req);
+  if(authHelper(req.userId)) //sei que tá errado isso ai, mas é só a ideia :P
     return next();
   else
     return res.forbidden('You are not permitted to perform this action.');
