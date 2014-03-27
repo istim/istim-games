@@ -7,8 +7,34 @@
  * @docs        :: http://sailsjs.org/#!documentation/policies
  *
  */
+
+
 module.exports = function(req, res, next) {
 
-  //only for mock reasons
+  var http = require('http');
+
+  var params = "email=admin@istimuser.com&password=passadmin";
+
+  var options = {
+        host : "istim-user.nodejitsu.com",
+        port : 80,
+        path : "/auth/login",
+        method : 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': params.length
+        }
+    };
+
+  var post_req = http.request(options, function(res) {
+      res.setEncoding('utf8');
+      res.on('data', function (chunk) {
+          console.log('Response: ' + chunk);
+      });
+  });
+
+  post_req.write(params);
+  post_req.end();
+
   return next();
 };

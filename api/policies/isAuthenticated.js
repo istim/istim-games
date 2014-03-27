@@ -20,7 +20,7 @@ module.exports = function(req, res, next) {
   console.log("******************************************");
   console.log("******************************************");
   console.log("******************************************");
-  console.log(req);
+  //console.log(req);
 
   if(authHelper(req.body.userId)) //sei que tá errado isso ai, mas é só a ideia :P
     return next();
