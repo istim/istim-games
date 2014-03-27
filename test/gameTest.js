@@ -93,9 +93,10 @@ describe('Routing', function() {
         });
     });
 
-    it('should return status 200 after UPDATING send a like to a game', function(done) {
+    it('should return status 200 after send a like to a game', function(done) {
       request(url)
         .post('/game/1/like')
+        .send({userId: 1})
         .expect(200)
         .end(function(err, res) {
             if (err) {
