@@ -11,7 +11,7 @@
  var developers = [0,1,2];
 
  var isGameDevHelper = function(userId){
-   if(developers.indexOf(userId) >= 0)
+   if(developers.indexOf(parseInt(userId)) >= 0)
      return true;
    else
      return false;
@@ -21,6 +21,6 @@ module.exports = function(req, res, next) {
   if(isGameDevHelper(req.body.userId)) //sei que tá errado isso ai, mas é só a ideia :P
     return next();
   else
-    return res.forbidden('You are not permitted to perform this action.');
+    return res.forbidden('You must be a game developer to perform this action.');
 
 };

@@ -7,21 +7,36 @@
  * @docs        :: http://sailsjs.org/#!documentation/policies
  *
  */
-function httpGet(url){
-    var xmlHttp = null;
-    xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", url, true );
-    xmlHttp.send();
-    var answer = xmlHttp.responseText;
-    return answer;
-}
 
 module.exports = function(req, res, next) {
-	var game = httpGet(req.body.gameId);
 
-	console.log(game);
+	var game;
 
-	if(game.userId == req.body.userId)
+	var http = require('http');
+
+	var options = {
+        host : "localhost",
+        port : 1337,
+        path : "/game/"+req.body.gameId,
+        method : 'GET'
+    };
+
+	var post_req = http.request(options, function(res) {
+      res.setEncoding('utf8');
+      res.on('data', function (chunk) {    	
+        game = chunk;
+        console.log("game:");
+        console.log(game);
+      });
+  	});
+
+	console.log("game de novo: \n"+game);
+
+  	post_req.end();
+
+  	console.log("game de novo1: \n"+game);
+
+	if(game.userId == parseInt(req.body.userId))
 		return next();
 	else
 		return res.forbidden('You are not permitted to perform this action.');
