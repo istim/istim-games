@@ -41,4 +41,3 @@ module.exports = function(req, res, next) {
 	else
 		return res.forbidden('You are not permitted to perform this action.');
 };
-
