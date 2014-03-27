@@ -7,8 +7,21 @@
  * @docs        :: http://sailsjs.org/#!documentation/policies
  *
  */
-module.exports = function(req, res, next) {
+function httpGet(theUrl){
+    var xmlHttp = null;
+    xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", theUrl, true );
+    xmlHttp.send();
+    var answer = xmlHttp.responseText;
+    return answer;
+}
 
-  //only for mock reasons
-  return next();
+module.exports = function(req, res, next) {
+	var game = httpGet(req.body.gameId);
+
+	if(game.userId == req.body.userId)
+		return next();
+	else
+		return res.forbidden('You are not permitted to perform this action.');
 };
+
