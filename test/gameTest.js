@@ -10,6 +10,7 @@ describe('Routing', function() {
     description: 'Joguim dos Leleks, a origem das lelekagens',
     releaseDate: new Date(),
     publisher: 1,
+    userId: 1,
     likes: 0,
     id: 1,
     systemRequirements: "Um PC da Xuxa"
