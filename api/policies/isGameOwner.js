@@ -17,6 +17,8 @@ function httpGet(url){
 }
 
 module.exports = function(req, res, next) {
+  return next();
+  
 	var game = httpGet(req.body.gameId);
 
 	console.log(game);
@@ -26,4 +28,3 @@ module.exports = function(req, res, next) {
 	else
 		return res.forbidden('You are not permitted to perform this action.');
 };
-
