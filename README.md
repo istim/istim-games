@@ -22,6 +22,10 @@ http://istim-games.nodejitsu.com
     - ```GET to game/```
   - Get a  game
     - ```GET to game/:id```
+  - Obs:
+    - Only authenticated users can like a game.
+    - Only an (authenticated) user classified as game developer can create, update or delete a game.
+    - Only the game's owner can edit or delete his/ her own games.
  
 ### Achievements
   - Create achievements for a game
@@ -36,6 +40,10 @@ http://istim-games.nodejitsu.com
     - ```GET to achievement/```
   - Get a  achievment
     - ```GET to achievement/:id```
+  - Obs:
+    - Only authenticated users can like an achievement.
+    - Only an (authenticated) user classified as game developer can create, update or delete an achievement.
+    - Only the game's owner can edit or delete his/ her games' own achievements.
  
 ## Dependencies
 ### User API
