@@ -12,7 +12,8 @@ describe('Routing', function() {
     publisher: 1,
     likes: 0,
     systemRequirements: "Um PC que rode Crysis",
-    id: 5
+    id: 5,
+    userId: 1
   };
 
   var achievement = {
@@ -20,7 +21,8 @@ describe('Routing', function() {
     decription: 'Domine o poder da zuera',
     icon: 'http://imgsapp.oimparcial.com.br/app/noticia_130321921166/2013/02/15/129893/20130215154254551863i.jpg',
     game: 5,
-    id: 1
+    id: 1,
+    userId: 1
   }
 
   var new_title= 'Leeeet\'s Leeeeek';
@@ -74,7 +76,7 @@ describe('Routing', function() {
 
       request(url)
         .put('/achievement/1')
-        .send({title: new_title})
+        .send({title: new_title, userId: 1})
         .expect(200)
         .end(function(err, res) {
             if (err) {
@@ -89,7 +91,7 @@ describe('Routing', function() {
 
       request(url)
         .put('/achievement/1')
-        .send({description: new_description})
+        .send({description: new_description, userId: 1})
         .expect(200)
         .end(function(err, res) {
             if (err) {
@@ -104,7 +106,7 @@ describe('Routing', function() {
 
       request(url)
         .put('/achievement/1')
-        .send({icon: new_icon})
+        .send({icon: new_icon, userId: 1})
         .expect(200)
         .end(function(err, res) {
             if (err) {
@@ -118,6 +120,7 @@ describe('Routing', function() {
     it('should return status 200 after DELETING a achievement for a game that exists', function(done) {
       request(url)
         .del('/achievement/1')
+        .send({userId: 1})
         .expect(200)
         .end(function(err, res) {
             if (err) {
@@ -129,6 +132,7 @@ describe('Routing', function() {
     it('should return status 200 after DELETING a game', function(done) {
       request(url)
         .del('/game/5')
+        .send({userId: 1})
         .expect(200)
         .end(function(err, res) {
             if (err) {

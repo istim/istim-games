@@ -13,7 +13,8 @@ describe('Routing', function() {
     userId: 1,
     likes: 0,
     id: 1,
-    systemRequirements: "Um PC da Xuxa"
+    systemRequirements: "Um PC da Xuxa",
+    userId: 1
   };
 
   var new_name='Joguim dos Leleks 3 - Rise of the TecnoLesk';
@@ -40,7 +41,7 @@ describe('Routing', function() {
     it('should return status 200 after UPDATING a game\'s name', function(done) {
       request(url)
         .put('/game/1')
-        .send({name: new_name})
+        .send({name: new_name, userId: 1})
         .expect(200)
         .end(function(err, res) {
             if (err) {
@@ -54,7 +55,7 @@ describe('Routing', function() {
     it('should return status 200 after UPDATING a game\'s description', function(done) {
       request(url)
         .put('/game/1')
-        .send({description: new_description})
+        .send({description: new_description, userId: 1})
         .expect(200)
         .end(function(err, res) {
             if (err) {
@@ -68,7 +69,7 @@ describe('Routing', function() {
     it('should return status 200 after UPDATING a game\'s publisher', function(done) {
       request(url)
         .put('/game/1')
-        .send({publisher: new_publisher})
+        .send({publisher: new_publisher, userId: 1})
         .expect(200)
         .end(function(err, res) {
             if (err) {
@@ -82,7 +83,7 @@ describe('Routing', function() {
     it('should return status 200 after UPDATING a game\'s system requirements', function(done) {
       request(url)
         .put('/game/1')
-        .send({systemRequirements: new_systemRequirements})
+        .send({systemRequirements: new_systemRequirements, userId: 1})
         .expect(200)
         .end(function(err, res) {
             if (err) {
@@ -110,6 +111,7 @@ describe('Routing', function() {
     it('should return status 200 after DELETING a game', function(done) {
       request(url)
         .del('/game/1')
+        .send({userId: 1})
         .expect(200)
         .end(function(err, res) {
             if (err) {
