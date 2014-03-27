@@ -9,7 +9,6 @@ describe('Routing', function() {
     name: 'Joguim dos Leleks - Lesk\'s Origin',
     description: 'Joguim dos Leleks, a origem das lelekagens',
     releaseDate: new Date(),
-    publisher: 1,
     userId: 1,
     likes: 0,
     id: 1,

@@ -13,7 +13,7 @@ module.exports = {
   	name: 'string',
   	releaseDate: 'date',
   	description: 'text',
-  	publisher: 'integer',
+  	userId: 'integer',
     url: 'string',
   	likes: 'integer',
   	systemRequirements: 'text'
