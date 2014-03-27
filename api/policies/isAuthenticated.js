@@ -10,7 +10,7 @@
 var authenticadedUsers = [0,1,2,3,4];
 
 var authHelper = function(userId){
-  if(authenticadedUsers.indexOf(userId) > 0)
+  if(authenticadedUsers.indexOf(userId) >= 0)
     return true; 
   else
     return false;
