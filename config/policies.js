@@ -26,7 +26,7 @@ module.exports.policies = {
   },
 
   AchievementController:{
-    create :  ['isValidUser','isAuthenticated', 'isGameDev', 'isGameOwner'],
+    create :  ['isValidUser','isAuthenticated', 'isGameDev', 'isGameOwner2'],
     update :  ['isValidUser','isAuthenticated', 'isGameDev', 'isAchievementGameOwner'],
     destroy : ['isValidUser','isAuthenticated', 'isGameDev', 'isAchievementGameOwner'],
   }
