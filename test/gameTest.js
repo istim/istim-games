@@ -5,8 +5,8 @@ var should = require("should");
 describe('Routing', function() {
   var url = 'http://localhost:1337';
 
-  var devId = 1;
-  var nonDevId = 4;
+  var devId = "53303b12ca220bc4110c436f";
+  var nonDevId = "53303b12ca220bc4110c436f";
 
   var game = {
     name: 'Joguim dos Leleks - Lesk\'s Origin',

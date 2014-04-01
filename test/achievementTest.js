@@ -13,7 +13,7 @@ describe('Routing', function() {
     likes: 0,
     systemRequirements: "Um PC que rode Crysis",
     id: 5,
-    userId: 1
+    userId: "5331cea6cdc1b2ac075c2e29"
   };
 
   var achievement = {
@@ -22,7 +22,7 @@ describe('Routing', function() {
     icon: 'http://imgsapp.oimparcial.com.br/app/noticia_130321921166/2013/02/15/129893/20130215154254551863i.jpg',
     game: 5,
     id: 1,
-    userId: 1
+    userId: "5331cea6cdc1b2ac075c2e29"
   }
 
   var new_title= 'Leeeet\'s Leeeeek';
@@ -76,7 +76,7 @@ describe('Routing', function() {
 
       request(url)
         .put('/achievement/1')
-        .send({title: new_title, userId: 1})
+        .send({title: new_title, userId: "5331cea6cdc1b2ac075c2e29"})
         .expect(200)
         .end(function(err, res) {
             if (err) {
@@ -91,7 +91,7 @@ describe('Routing', function() {
 
       request(url)
         .put('/achievement/1')
-        .send({description: new_description, userId: 1})
+        .send({description: new_description, userId: "5331cea6cdc1b2ac075c2e29"})
         .expect(200)
         .end(function(err, res) {
             if (err) {
@@ -106,7 +106,7 @@ describe('Routing', function() {
 
       request(url)
         .put('/achievement/1')
-        .send({icon: new_icon, userId: 1})
+        .send({icon: new_icon, userId: "5331cea6cdc1b2ac075c2e29"})
         .expect(200)
         .end(function(err, res) {
             if (err) {
@@ -120,7 +120,7 @@ describe('Routing', function() {
     it('should return status 200 after DELETING a achievement for a game that exists', function(done) {
       request(url)
         .del('/achievement/1')
-        .send({userId: 1})
+        .send({userId: "5331cea6cdc1b2ac075c2e29"})
         .expect(200)
         .end(function(err, res) {
             if (err) {
@@ -132,7 +132,7 @@ describe('Routing', function() {
     it('should return status 200 after DELETING a game', function(done) {
       request(url)
         .del('/game/5')
-        .send({userId: 1})
+        .send({userId: "5331cea6cdc1b2ac075c2e29"})
         .expect(200)
         .end(function(err, res) {
             if (err) {

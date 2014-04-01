@@ -7,18 +7,53 @@
  * @docs        :: http://sailsjs.org/#!documentation/policies
  *
  */
-var authenticadedUsers = [0,1,2,3,4];
 
-var authHelper = function(userId){
-  if(authenticadedUsers.indexOf(parseInt(userId)) >= 0)
-    return true;
-  else
-    return false;
+var authHelper = function(users, userId){
+	console.log("\n"+users+"\n");
+	for(var i = 0; i < users.length; i++){
+		if(users[i].userId == userId){
+			console.log("\n\nTRUEEEEEEEEEEEEEEEE\n\n");
+			return true;
+		}
+	}
+	return false;
 }
 
 module.exports = function(req, res, next) {
-  if(authHelper(req.body.userId))
-    return next();
-  else
-    return res.forbidden('You must be logged in to perform this action.');
+	var http = require('http');
+	var userId = req.body.userId;
+	var options = {
+	  hostname: 'istim-user.nodejitsu.com',
+	  port: 80,
+	  path: '/getAllAuthenticated',
+	  method: 'GET'
+	};
+
+	var req = http.request(options, function(res) {
+	  	res.on('data', function (chunk) {
+	  		if(authHelper(chunk, userId)){
+    			return sucess();
+    		}
+    		else{
+    			return error();
+    		}
+	  });
+	});
+
+	req.on('error', function(e) {
+	  console.log('problem with request: ' + e.message);
+	});
+	req.on('end', function() {
+		console.log("EEEEEEND");
+	});
+
+	req.end();
+
+  
+	var success = function(){
+    	return next();
+	}
+  	var error = function() {
+    	return res.forbidden('You must be logged in to perform this action.');
+	}
 };
