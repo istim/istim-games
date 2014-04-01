@@ -9,7 +9,6 @@
  */
 
 var authHelper = function(users, userId){
-	console.log("\n"+users+"\n");
 	for(var i = 0; i < users.length; i++){
 		if(users[i].userId == userId){
 			console.log("\n\nTRUEEEEEEEEEEEEEEEE\n\n");
@@ -22,6 +21,8 @@ var authHelper = function(users, userId){
 module.exports = function(req, res, next) {
 	var http = require('http');
 	var userId = req.body.userId;
+  var str = '';
+
 	var options = {
 	  hostname: 'istim-user.nodejitsu.com',
 	  port: 80,
@@ -30,26 +31,24 @@ module.exports = function(req, res, next) {
 	};
 
 	var req = http.request(options, function(res) {
-	  	res.on('data', function (chunk) {
-	  		if(authHelper(chunk, userId)){
-    			return sucess();
-    		}
-    		else{
-    			return error();
-    		}
+	  res.on('data', function (chunk) {
+      str += chunk;
 	  });
-	});
 
-	req.on('error', function(e) {
-	  console.log('problem with request: ' + e.message);
-	});
-	req.on('end', function() {
-		console.log("EEEEEEND");
-	});
+    res.on('end', function() {
+      var users = JSON.parse(str);
 
-	req.end();
-
+      if(authHelper(users, userId)){
+        return success();
+      }
+      else{
+        return error();
+      }
+    });
+	});
   
+  req.end();
+
 	var success = function(){
     	return next();
 	}
