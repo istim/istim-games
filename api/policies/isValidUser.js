@@ -9,8 +9,6 @@
  */
 
 module.exports = function(req, res, next) {
-  //comentei pq tava logandoe esse usuario mil vezes :P
-  //essa policy ainda faz sentido ter????
   /*var http = require('http');
 
   var params = "email=admin@istimuser.com&password=passadmin";
