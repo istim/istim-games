@@ -21,7 +21,7 @@ var authHelper = function(users, userId){
 module.exports = function(req, res, next) {
 	var http = require('http');
 	var userId = req.body.userId;
-  var str = '';
+  	var str = '';
 
 	var options = {
 	  hostname: 'istim-user.nodejitsu.com',

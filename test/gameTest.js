@@ -6,7 +6,7 @@ describe('Routing', function() {
   var url = 'http://localhost:1337';
 
   var devId = "53303b12ca220bc4110c436f";
-  var nonDevId = "53303b12ca220bc4110c436f";
+  var nonDevId = "4376g6r8h8724";
 
   var game = {
     name: 'Joguim dos Leleks - Lesk\'s Origin',

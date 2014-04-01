@@ -3,6 +3,7 @@ var assert = require("assert");
 var should = require("should");
 
 describe('Routing', function() {
+
   var url = 'http://localhost:1337';
 
   var game = {
