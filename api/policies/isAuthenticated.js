@@ -9,7 +9,7 @@
  */
 
 var authHelper = function(users, userId){
-	if(users.authenticated = "yes"){
+	if(users.authenticated == "yes"){
 		console.log("\n\Is AUTH\n\n");
 		return true;
 	}
@@ -18,15 +18,22 @@ var authHelper = function(users, userId){
 }
 
 module.exports = function(req, res, next) {
+
 	var http = require('http');
 	var userId = req.body.userId;
   	var str = '';
+
+  	var params = "userId="+userId;
 
 	var options = {
 	  hostname: 'istim-user.nodejitsu.com',
 	  port: 80,
 	  path: '/authenticated',
-	  method: 'GET'
+	  method: 'POST',
+	  headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': params.length
+        }
 	};
 
 	var req = http.request(options, function(res) {
@@ -46,7 +53,8 @@ module.exports = function(req, res, next) {
     });
 	});
 
-  req.end();
+	req.write(params);
+  	req.end();
 
 	var success = function(){
     	return next();

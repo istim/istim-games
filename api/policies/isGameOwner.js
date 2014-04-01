@@ -13,7 +13,7 @@ module.exports = function(req, res, next) {
 	  resp.on('data', function(chunk){
 	    var game = JSON.parse(chunk);
 
-	    if(game.userId == parseInt(req.body.userId)){
+	    if(game.userId == parseInt(req.body.userId))
 			return next();
 		else
 			return res.forbidden('You are not the game owner.');
