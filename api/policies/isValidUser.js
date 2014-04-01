@@ -8,10 +8,10 @@
  *
  */
 
-
 module.exports = function(req, res, next) {
-
-  var http = require('http');
+  //comentei pq tava logandoe esse usuario mil vezes :P
+  //essa policy ainda faz sentido ter????
+  /*var http = require('http');
 
   var params = "email=admin@istimuser.com&password=passadmin";
 
@@ -34,7 +34,7 @@ module.exports = function(req, res, next) {
   });
 
   post_req.write(params);
-  post_req.end();
+  post_req.end();*/
 
   return next();
 };
