@@ -3,6 +3,9 @@ var assert = require("assert");
 var should = require("should");
 
 describe('Routing', function() {
+
+  this.timeout(100000);
+
   var url = 'http://localhost:1337';
 
   var devId = "53303b12ca220bc4110c436f";

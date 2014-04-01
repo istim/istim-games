@@ -11,10 +11,11 @@
 var authHelper = function(users, userId){
 	for(var i = 0; i < users.length; i++){
 		if(users[i].userId == userId){
-			console.log("\n\nTRUEEEEEEEEEEEEEEEE\n\n");
+			console.log("\n\Is AUTH\n\n");
 			return true;
 		}
 	}
+  console.log("\n\Is NOT AUTH\n\n");
 	return false;
 }
 
@@ -46,7 +47,7 @@ module.exports = function(req, res, next) {
       }
     });
 	});
-  
+
   req.end();
 
 	var success = function(){

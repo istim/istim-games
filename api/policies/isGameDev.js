@@ -11,13 +11,12 @@
  var developers = "53303b12ca220bc4110c436f";
 
  var isGameDevHelper = function(userId){
- 	console.log(typeof(developers)+" - "+typeof(userId));
- 	console.log(developers);
- 	console.log(userId);
    if(developers == userId){
+     console.log("\n\Is Game Dev\n\n");
      return true;
    }
    else
+     console.log("\n\Is NOT Game Dev\n\n");
      return false;
  }
 
@@ -27,6 +26,6 @@ module.exports = function(req, res, next) {
  	else{
  		console.log("must be game dev");
     	return res.forbidden('You must be a game developer to perform this action.');
-	}	
+	}
 
 };
