@@ -9,25 +9,31 @@
  */
 
 var authHelper = function(users, userId){
-	for(var i = 0; i < users.length; i++){
-		if(users[i].userId == userId){
-			console.log("\n\nTRUEEEEEEEEEEEEEEEE\n\n");
-			return true;
-		}
+	if(users.authenticated == "yes"){
+		console.log("\n\Is AUTH\n\n");
+		return true;
 	}
+  	console.log("\n\Is NOT AUTH\n\n");
 	return false;
 }
 
 module.exports = function(req, res, next) {
+
 	var http = require('http');
 	var userId = req.body.userId;
-  var str = '';
+  	var str = '';
+
+  	var params = "userId="+userId;
 
 	var options = {
 	  hostname: 'istim-user.nodejitsu.com',
 	  port: 80,
-	  path: '/getAllAuthenticated',
-	  method: 'GET'
+	  path: '/authenticated',
+	  method: 'POST',
+	  headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': params.length
+        }
 	};
 
 	var req = http.request(options, function(res) {
@@ -46,8 +52,9 @@ module.exports = function(req, res, next) {
       }
     });
 	});
-  
-  req.end();
+
+	req.write(params);
+  	req.end();
 
 	var success = function(){
     	return next();

@@ -8,19 +8,24 @@
  *
  */
 
- var developers = [0,1,2];
+ var developers = "53303b12ca220bc4110c436f";
 
  var isGameDevHelper = function(userId){
-   if(developers.indexOf(parseInt(userId)) >= 0)
+   if(developers == userId){
+     console.log("\n\Is Game Dev\n\n");
      return true;
+   }
    else
+     console.log("\n\Is NOT Game Dev\n\n");
      return false;
  }
 
 module.exports = function(req, res, next) {
   if(isGameDevHelper(req.body.userId)) //sei que tá errado isso ai, mas é só a ideia :P
     return next();
-  else
-    return res.forbidden('You must be a game developer to perform this action.');
+ 	else{
+ 		console.log("must be game dev");
+    	return res.forbidden('You must be a game developer to perform this action.');
+	}
 
 };
