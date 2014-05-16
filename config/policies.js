@@ -19,16 +19,16 @@ module.exports.policies = {
   '*': true,
 
   GameController:{
-    create  :  ['isAuthenticated', 'isGameDev'],
-    update  :  ['isAuthenticated', 'isGameDev', 'isGameOwner'],
-    destroy : ['isAuthenticated', 'isGameDev', 'isGameOwner'],
-    like    : ['isAuthenticated'],
+    create :  ['isValidUser','isAuthenticated', 'isGameDev'],
+    update :  ['isValidUser','isAuthenticated', 'isGameDev', 'isGameOwner'],
+    destroy : ['isValidUser','isAuthenticated', 'isGameDev', 'isGameOwner'],
+    like : ['isValidUser','isAuthenticated'],
   },
 
   AchievementController:{
-    create  :  ['isAuthenticated', 'isGameDev', 'isGameOwner2'],
-    update  :  ['isAuthenticated', 'isGameDev', 'isAchievementGameOwner'],
-    destroy : ['isAuthenticated', 'isGameDev', 'isAchievementGameOwner'],
+    create :  ['isValidUser','isAuthenticated', 'isGameDev', 'isGameOwner2'],
+    update :  ['isValidUser','isAuthenticated', 'isGameDev', 'isAchievementGameOwner'],
+    destroy : ['isValidUser','isAuthenticated', 'isGameDev', 'isAchievementGameOwner'],
   }
   /*
 	// Here's an example of adding some policies to a controller

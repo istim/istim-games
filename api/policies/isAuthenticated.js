@@ -19,6 +19,8 @@ var authHelper = function(users, userId){
 
 module.exports = function(req, res, next) {
 
+	return next();
+
 	var http = require('http');
 	var userId = req.body.userId;
   	var str = '';
