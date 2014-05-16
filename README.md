@@ -22,6 +22,10 @@ http://istim-games.nodejitsu.com
     - ```GET to game/```
   - Get a  game
     - ```GET to game/:id```
+  - Soon:
+    - Buy Games
+      - ```POST to game/:id/buy``` 
+   
   - Obs:
     - Only authenticated users can like a game.
     - Only an (authenticated) user classified as game developer can create, update or delete a game.
