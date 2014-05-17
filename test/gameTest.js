@@ -135,6 +135,61 @@ describe('Routing', function() {
         });
     });
 
+    it('should return status 201 after buying a game', function(done) {
+      request(url)
+        .post('/user/1/buy/6')
+        .expect(201)
+        .end(function(err, res) {
+            if (err) {
+              throw err;
+            }
+            done();
+        });
+    });
+
+    it('should return a list of games', function(done) {
+      request(url)
+        .post('/user/1/games/1')
+        .expect(201)
+        .end(function(err, res) {
+            if (err) {
+              throw err;
+            }
+            done();
+        });
+
+      request(url)
+          .post('/user/1/games/2')
+          .expect(201)
+          .end(function(err, res) {
+            if (err) {
+              throw err;
+            }
+            done();
+        });
+
+      request(url)
+          .post('/user/1/games/3')
+          .expect(201)
+          .end(function(err, res) {
+            if (err) {
+              throw err;
+            }
+            done();
+        });    
+
+      request(url)
+        .get('user/1/games')
+        .expect(200)
+        .end(function(err, res) {
+            if (err) {
+              throw err;
+            }
+            assert.equal(res.body.games, [1,2,3,4,5,6]);
+            done();
+        });
+    });
+
     it('should return status 200 after DELETING a game', function(done) {
       request(url)
         .del('/game/1')

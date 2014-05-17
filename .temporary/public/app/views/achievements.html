@@ -1,0 +1,66 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="istimGames">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>Istim Games</title>
+
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="../styles/bootstrap.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+
+</head>
+<!-- SET THE CONTROLLER AND GET ALL ACHIEVEMENTS WITH INITIALIZE FUNCTION -->
+<body ng-controller="achievementsIndexController">
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <a class="navbar-brand" href="./index.html">Games</a>
+            <a class="navbar-brand" href="./achievements.html">Achievements</a>
+            <a class="navbar-brand" id="important" href="./new.html">Publish</a>
+          </div>
+        </div>
+
+        <!-- GAME LIST -->
+        <div id="achievement-list" class="container">
+            <div class="jumbotron list">
+
+                <!-- LOOP OVER THE GAMES IN $scope.games -->
+                <div>
+                    <table class="table table-hover">
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                        <tr ng-repeat="achievement in achievements">
+                            <td>{{achievement.title}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="container">
+            <br>
+            <footer class="footer pull-left">
+                <div>
+                  <a href="http://diredevs.com/">Diredevs</a>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+    <!-- SPELLS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.min.js"></script>
+    <script src="../controllers/achievementsIndexController.js"></script>
+</body>
+</html>
