@@ -14,9 +14,19 @@ module.exports = {
 	},
 
 	games: function (req, res){
-    	Gamer.find(req.param('id')).done(function(err, games){
-			return res.send(games);
-    	});
+		var gameIds;
+		var result = [];
+		Gamer.find().where({userId: req.param('id')}).exec(function(err, games) {
+			//console.log(games);
+			var gameIds = games;
+			//return res.json(games);
+			for(var i = 0; i < gameIds.length; i++){
+				result.push(gameIds[i].gameId);
+			}
+			console.log(result);
+			return res.json(result);
+		}); 
+
 	}
 };
 
