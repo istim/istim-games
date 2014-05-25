@@ -6,7 +6,7 @@ Game manager API for the Istim Gaming Platform.
 
 ## Server URL
 
-http://istim-games.nodejitsu.com
+https://projetos.dimap.ufrn.br/istim/games/ 
  
 ## Services
 ### Games
@@ -22,9 +22,8 @@ http://istim-games.nodejitsu.com
     - ```GET to game/```
   - Get a  game
     - ```GET to game/:id```
-  - Soon:
-    - Buy Games
-      - ```POST to game/:id/buy``` 
+  - Buy Games
+    - ```POST to game/:id/buy``` 
    
   - Obs:
     - Only authenticated users can like a game.
