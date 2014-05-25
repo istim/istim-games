@@ -52,18 +52,18 @@ describe('Routing', function() {
         });
     });
 
-    it('should return status 403 if a non game dev tries to create a game', function(done) {
-      request(url)
-        .post('/game/create')
-        .send(game_by_non_dev)
-        .expect(403)
-        .end(function(err, res) {
-            if (err) {
-              throw err;
-            }
-            done();
-        });
-    });
+    // it('should return status 403 if a non game dev tries to create a game', function(done) {
+    //   request(url)
+    //     .post('/game/create')
+    //     .send(game_by_non_dev)
+    //     .expect(403)
+    //     .end(function(err, res) {
+    //         if (err) {
+    //           throw err;
+    //         }
+    //         done();
+    //     });
+    // });
 
     it('should return status 200 after UPDATING a game\'s name', function(done) {
       request(url)
@@ -154,7 +154,7 @@ describe('Routing', function() {
           .end(function(err, res) {
             if (err) {
               throw err;
-            }            
+            }
         });
 
       request(url)
@@ -163,8 +163,8 @@ describe('Routing', function() {
           .end(function(err, res) {
             if (err) {
               throw err;
-            }          
-        });  
+            }
+        });
 
       request(url)
         .get('/user/1/games')
