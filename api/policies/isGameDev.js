@@ -21,6 +21,8 @@
  }
 
 module.exports = function(req, res, next) {
+  return next();
+  
   if(isGameDevHelper(req.body.userId)) //sei que tá errado isso ai, mas é só a ideia :P
     return next();
  	else{
