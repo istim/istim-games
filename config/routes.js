@@ -41,6 +41,16 @@ module.exports.routes = {
     action      :   'like'
   },
 
+  'get /user/:id/games':{
+    controller  :   'user',
+    action      :   'games'
+  },
+
+  'post /user/:userId/buy/:gameId':{
+    controller  :   'user',
+    action      :   'buy'
+  },
+
   'get /game/:id/achievements':{
     controller: 'game',
     action: 'achievements'
