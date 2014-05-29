@@ -24,6 +24,8 @@ https://projetos.dimap.ufrn.br/istim/games/
     - ```GET to game/:id```
   - Buy Games
     - ```POST to game/:id/buy``` 
+  - Get all games from a user
+    - ```GET to user/:id/games```
    
   - Obs:
     - Only authenticated users can like a game.
