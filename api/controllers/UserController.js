@@ -47,7 +47,7 @@ module.exports = {
 	games: function (req, res){
 		var gameIds;
 		var result = [];
-		Gamer.find().where().exec(function(err, games) {
+		Gamer.find().where({userId: req.param('id')}).exec(function(err, games) {
 			//console.log(games);
 			var gameIds = games;
 			//return res.json(games);
