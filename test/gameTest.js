@@ -1,4 +1,4 @@
-var request = require("supertest")
+var request = require("supertest");
 var assert = require("assert");
 var should = require("should");
 

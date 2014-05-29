@@ -16,7 +16,8 @@ module.exports = {
   	userId: 'integer',
     url: 'string',
   	likes: 'integer',
-  	systemRequirements: 'text'
+  	systemRequirements: 'text',
+    price: 'integer'
 
   }
 

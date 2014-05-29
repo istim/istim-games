@@ -12,7 +12,8 @@
         "optimist": "0.3.4",
         "supertest": "*",
         "should": "*",
-        "assert": "*"
+        "assert": "*",
+        "request": "*"
     },
     "scripts": {
         "start": "node app.js",
